@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -77,6 +76,8 @@ public class HelloCheckBox extends JFrame {
 
         txtOutput = new JTextArea();
         txtOutput.setBounds(15, 460, 350, 100);
+        txtOutput.setLineWrap(true);
+        txtOutput.setWrapStyleWord(true);
 
         // Action for button click
         button.addActionListener(new ActionListener() {
@@ -156,7 +157,7 @@ public class HelloCheckBox extends JFrame {
         this.setJMenuBar(menuBar); // Set the menu bar
 
         // Frame settings
-        this.setSize(400, 600);
+        this.setSize(400, 620);
         this.setLayout(null);
     }
 
