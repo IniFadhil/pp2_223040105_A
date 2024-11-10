@@ -143,53 +143,42 @@ public class PendaftaranKuliah extends JFrame {
 
         // Submit button
         JButton submitButton = new JButton("Daftar");
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Retrieve form data
-                String name = nameField.getText();
-                String address = addressArea.getText();
-                String gender = maleRadio.isSelected() ? "Laki-laki" : "Perempuan";
-                String program = (String) programComboBox.getSelectedItem();
-                
-                // Get interests
-                StringBuilder interests = new StringBuilder();
-                if (sportsCheck.isSelected()) interests.append("Olahraga ");
-                if (artsCheck.isSelected()) interests.append("Seni ");
-                if (musicCheck.isSelected()) interests.append("Musik ");
-
-                // Get selected hobbies
-                String hobbies = String.join(", ", hobbiesList.getSelectedValuesList());
-
-                // Get priority
-                String priority = highPriority.isSelected() ? "Tinggi" : (mediumPriority.isSelected() ? "Sedang" : "Rendah");
-
-                // Get category
-                String category = (String) categoryComboBox.getSelectedItem();
-
-                // Get completion status and progress
-                boolean isCompleted = completedCheckBox.isSelected();
-                int progress = progressSlider.getValue();
-
-                // Get date
-                Date date = (Date) dateSpinner.getValue();
-
-                // Add data to table
-                tableModel.addRow(new Object[]{name, address, gender, program, interests.toString(), hobbies, priority, category, isCompleted, progress, date});
-
-                // Clear form
-                nameField.setText("");
-                addressArea.setText("");
-                genderGroup.clearSelection();
-                priorityGroup.clearSelection();
-                sportsCheck.setSelected(false);
-                artsCheck.setSelected(false);
-                musicCheck.setSelected(false);
-                hobbiesList.clearSelection();
-                completedCheckBox.setSelected(false);
-                progressSlider.setValue(0);
-                dateSpinner.setValue(new Date());
-            }
+        submitButton.addActionListener((ActionEvent e) -> {
+            // Retrieve form data
+            String name1 = nameField.getText();
+            String address = addressArea.getText();
+            String gender = maleRadio.isSelected() ? "Laki-laki" : "Perempuan";
+            String program = (String) programComboBox.getSelectedItem();
+            // Get interests
+            StringBuilder interests = new StringBuilder();
+            if (sportsCheck.isSelected()) interests.append("Olahraga ");
+            if (artsCheck.isSelected()) interests.append("Seni ");
+            if (musicCheck.isSelected()) interests.append("Musik ");
+            // Get selected hobbies
+            String hobbies1 = String.join(", ", hobbiesList.getSelectedValuesList());
+            // Get priority
+            String priority = highPriority.isSelected() ? "Tinggi" : (mediumPriority.isSelected() ? "Sedang" : "Rendah");
+            // Get category
+            String category = (String) categoryComboBox.getSelectedItem();
+            // Get completion status and progress
+            boolean isCompleted = completedCheckBox.isSelected();
+            int progress = progressSlider.getValue();
+            // Get date
+            Date date = (Date) dateSpinner.getValue();
+            // Add data to table
+            tableModel.addRow(new Object[]{name1, address, gender, program, interests.toString(), hobbies1, priority, category, isCompleted, progress, date});
+            // Clear form
+            nameField.setText("");
+            addressArea.setText("");
+            genderGroup.clearSelection();
+            priorityGroup.clearSelection();
+            sportsCheck.setSelected(false);
+            artsCheck.setSelected(false);
+            musicCheck.setSelected(false);
+            hobbiesList.clearSelection();
+            completedCheckBox.setSelected(false);
+            progressSlider.setValue(0);
+            dateSpinner.setValue(new Date());
         });
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(submitButton);
